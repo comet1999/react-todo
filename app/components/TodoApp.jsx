@@ -48,7 +48,7 @@ class TodoApp extends React.Component {
         const {todos} = this.state;
         return (
             <div className="todo-app">
-                <h2 className="title-r">Lista latinoamericana de pendientes</h2>
+                <div className="title-r small-center">Lista latinoamericana de pendientes</div>
                 <TodoSearch onSearch={this.handleSearch}/>
                 <TodoList todos={todos} />
                 <AddTodo onAddTodo={this.handleAddTodo} />

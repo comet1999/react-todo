@@ -5,51 +5,57 @@ const $         = require('jquery');
 const TestUtils = require('react-addons-test-utils');
 
 
-const {AddTodo} = require('AddTodo');
-const {TodoApp}     = require('TodoApp');
+const {TodoSearch} = require('TodoSearch');
+
 
 
 describe('ADD TODO', () => {
 
     it('should exist', () => {
-        expect(AddTodo).toExist();
+        expect(TodoSearch).toExist();
     });
 
-    // it('should call onAddTodo prop with valid data', () => {
+    it('should call onSearch prop with entered input text', () => {
 
-    //     let spy = expect.createSpy();
-    //     let todoApp = TestUtils.renderIntoDocument(<TodoApp />);  
-    //     let addTodo = TestUtils.renderIntoDocument(<AddTodo onAddTodo={spy}/>);  
-
-    //     let $el = $(ReactDOM.findDOMNode(addTodo));
-
-    //     let newText = "Go surf"
-    //     addTodo.refs.todoText.value = newText;
-
-    //     TestUtils.Simulate.submit($el.find('form')[0]);
-
-    //     // addTodo.handleSubmit();
-    //     expect(spy).toHaveBeenCalled();
-    //     expect(spy).toHaveBeenCalledWith(newText);
-
-    // });
-
-    // it('should NOT call onAddTodo prop with invalid input', () => {
-
-    //     let spy = expect.createSpy();
-    //     let todoApp = TestUtils.renderIntoDocument(<TodoApp />);  
-    //     let addTodo = TestUtils.renderIntoDocument(<AddTodo onAddTodo={spy}/>);  
-
-    //     let $el = $(ReactDOM.findDOMNode(addTodo));
-
-    //     let newText = ""
-    //     addTodo.refs.todoText.value = newText;
-
-    //     TestUtils.Simulate.submit($el.find('form')[0]);
-
-    //     // addTodo.handleSubmit();
-    //     expect(spy).toNotHaveBeenCalled();
+        let spy = expect.createSpy();
+        let todoSearch = TestUtils.renderIntoDocument(<TodoSearch onSearch={spy}/>);  
 
 
-    // });
+
+        let searchText    = "Go surf"
+        let showCompleted = false;
+
+        todoSearch.refs.searchText.value      = searchText;
+        todoSearch.refs.showCompleted.checked = showCompleted;
+
+
+      
+        TestUtils.Simulate.change(todoSearch.refs.searchText);
+
+      
+        expect(spy).toHaveBeenCalled();
+        expect(spy).toHaveBeenCalledWith(showCompleted, searchText);
+
+    });
+
+
+    it('should call onSearch prop with proper checked value', () => {
+
+        let spy = expect.createSpy();
+        let todoSearch = TestUtils.renderIntoDocument(<TodoSearch onSearch={spy}/>);  
+
+
+        let showCompleted = true;
+
+
+        todoSearch.refs.showCompleted.checked = showCompleted;
+
+        TestUtils.Simulate.change(todoSearch.refs.showCompleted);
+ 
+        expect(spy).toHaveBeenCalled();
+        expect(spy).toHaveBeenCalledWith(showCompleted, '');
+
+    });
+
+ 
 });
