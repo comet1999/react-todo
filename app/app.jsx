@@ -3,7 +3,7 @@ const ReactDOM = require('react-dom');
 const {Route, Router, IndexRoute, hashHistory, browserHistory} = require('react-router');
 
 
-
+const {TodoApp} = require('TodoApp');
 
 
 // load foundation
@@ -15,8 +15,8 @@ require('style!css!sass!applicationStyles');
 
 
 ReactDOM.render(
-    <p>Boilerplate 3 project</p>,
+    <TodoApp/>
 
 
-    document.getElementById('app')
+    , document.getElementById('app')
 );

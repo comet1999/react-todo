@@ -28,9 +28,14 @@ module.exports = {
 
     resolve: {
         root: __dirname,
+        modulesDirectories: ['node_modules', './app/components'],
         alias: {
             applicationStyles: 'app/styles/app.scss'
-     
+            // , AddTodo:          'app/components/AddTodo.jsx'
+            // , Search:           'app/components/Search.jsx'
+            // , Todo:             'app/components/Todo.jsx'
+            // , TodoApp:          'app/components/TodoApp.jsx'
+            // , TodoList:         'app/components/TodoList.jsx'
         },
 
         extensions: ['', '.js', '.jsx']
@@ -57,7 +62,7 @@ module.exports = {
         ]
     }
 
-    //,devtool: 'cheap-module-eval-source-map'
+    ,devtool: 'inline-source-map'
 
 
 };
