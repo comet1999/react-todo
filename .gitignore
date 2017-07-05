@@ -1,0 +1,6 @@
+node_modules
+nohup.out
+yarn.lock
+public/bundle*
+*Main2.jsx
+*_Main2.scss
