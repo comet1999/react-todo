@@ -36,7 +36,7 @@ class AddTodo extends React.Component {
             <div className="add-todo">
                 <form onSubmit={this.handleSubmit}>
                     <input ref="todoText" type="text" placeholder="¿Qué tiene que hacer?"/>
-                    <button className="button expanded hollow">Añadir un pendiente</button>
+                    <button className="button expanded hollow primary">Añadir un pendiente</button>
             
                 </form>
             
