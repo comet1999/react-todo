@@ -10,7 +10,7 @@ class Todo extends React.Component {
         let {id, text} = this.props;
 
         return(
-            <div> {id}. {text} </div>
+            <div className="todo-item"> {id}. {text} </div>
         );
     }
 }

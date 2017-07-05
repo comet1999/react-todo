@@ -26,7 +26,7 @@ class TodoApp extends React.Component {
     render() {
         const {todos} = this.state;
         return (
-            <div>
+            <div className="todo-app">
                 <h2>TodoApp</h2>
                 <TodoList todos={todos} />
             </div>

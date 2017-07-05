@@ -1,10 +1,16 @@
 const expect = require('expect');
+const React  = require('react');
+const ReactDOM = require('react-dom');
+const $         = require('jquery');
+const TestUtils = require('react-addons-test-utils');
 
 
-describe('tests config', () => {
+// const App = require('App');
 
-    it('should properly run tests', () => {
-        expect(1).toBe(1);
-    }); 
 
+describe('APP', () => {
+
+    it('should pass tests', () => {
+        // expect(<TodoApp />).toExist();
+    });
 });
