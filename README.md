@@ -1,7 +1,9 @@
-## Simple React Clock App. 
+## A rather complex and satisfying Todo Application. 
+### It uses React Technology
 
-__This is an educational application developed for a react course taught by A. Mead.
-Excellent for learning React.__ :+1:
+__This is an educational application developed for a react course.
+
+(Which is an excellent way for learning React.__ :+1: )
 
 
 
