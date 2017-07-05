@@ -31,7 +31,7 @@ describe('TODO LIST', () => {
         let todoList = TestUtils.renderIntoDocument(<TodoList todos={todos}/>);
         let todosComponents = TestUtils.scryRenderedComponentsWithType(todoList, Todo);
         expect(todosComponents.length).toBe(3);
-        console.log(todosComponents);
+       
         
     });
 });

@@ -24,9 +24,11 @@ class TodoList extends React.Component {
 
 
         return(
-            <div>
-                <div>TodoList</div>
-                {renderTodos()}
+            <div className="grid-container">
+                <div className="grid-y small-centered ">
+                    <div>TodoList</div>
+                    {renderTodos()}
+                </div>
             </div>
         );
     }
