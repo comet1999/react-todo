@@ -1,9 +1,9 @@
 ## A rather complex and satisfying Todo Application. 
-### It uses React Technology
+### Built using React.
 
-__This is an educational application developed for a react course.__
+__Note that this is an educational application developed for a react course.__
 
-(Which is an excellent way for learning React :+1: )
+(Pull requests are welcome :+1: )
 
 
 
