@@ -7,6 +7,9 @@ const {AddTodo}  = require('AddTodo');
 const {TodoSearch} = require('TodoSearch');
 const {Board} = require('Board');
 
+const {Tabs} = require('Tabs')
+const {Pane} = require('Pane')
+
 class TodoApp extends React.Component {
 
     constructor(props) {
@@ -30,7 +33,23 @@ class TodoApp extends React.Component {
         }
         this.handleAddTodo = this.handleAddTodo.bind(this);
         this.handleSearch  = this.handleSearch.bind(this);
+        this.handleToggle  = this.handleToggle.bind(this);
         
+    }
+
+    handleToggle(id) {
+        console.log(id);
+
+        let updatedTodos = this.state.todos.map((todo) => {
+            if(todo.id === id) {
+                todo.completed = !todo.completed;
+            }
+            return todo;
+        });
+
+        this.setState({
+            todos: updatedTodos
+        });
     }
 
     handleAddTodo(text) {
@@ -63,9 +82,34 @@ class TodoApp extends React.Component {
             <div className="todo-app">
                 <div className="title-r small-center">lista de peticiones a nuestro próximo presidente</div>
                 <TodoSearch onSearch={this.handleSearch}/>
-                <TodoList todos={todos} />
+                <TodoList todos={todos} onToggle={this.handleToggle} />
                 <AddTodo onAddTodo={this.handleAddTodo} />
                 <Board />
+
+
+                <Tabs >
+                    <Pane label="Tab 1">
+                        <div>Tab 1 contents</div>
+                    </Pane>
+                    <Pane label="Tab 2">
+                        <div>Tab 2 contents</div>
+                    </Pane>
+                    <Pane label="Tab 3">
+                        <div>Tab 3 contents</div>
+                    </Pane>
+                </Tabs>
+
+
+                {/*<Tabs>
+                    <Tab title="A First Tab">
+                        A First Tab CONTENTS
+                    </Tab>
+                    <Tab title="A Second Tab">
+                        A Second Tab CONTENTS
+                    </Tab>
+                </Tabs>*/}
+
+
             </div>
         );
     };
