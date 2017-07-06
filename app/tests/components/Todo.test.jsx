@@ -18,7 +18,7 @@ describe('TODO', () => {
         let todoData = {id:222, text:'Todo.test.jsx', completed: true};
 
         let spy = expect.createSpy();
-        let todo  = TestUtils.renderIntoDocument(<Todo {...todo} onToggle={spy}/>);
+        let todo  = TestUtils.renderIntoDocument(<Todo {...todoData} onToggle={spy}/>);
 
         
 

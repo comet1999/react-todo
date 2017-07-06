@@ -5,37 +5,53 @@ const uuid  = require('node-uuid');
 const {TodoList} = require('TodoList');
 const {AddTodo}  = require('AddTodo');
 const {TodoSearch} = require('TodoSearch');
-const {Board} = require('Board');
+const TodoAPI = require('TodoAPI');
 
+const {Board} = require('Board');
 const {Tabs} = require('Tabs')
 const {Pane} = require('Pane')
 
+
 class TodoApp extends React.Component {
+
+    
 
     constructor(props) {
         super(props);
         this.state = {
-            todos: [{
-                id: uuid(),
-                text: 'Walk the beautiful dog',
-                completed: false
-            },{
-                id:uuid(),
-                text:'Daily word review',
-                completed: true
-            }, {
-                id:uuid(),
-                text:'Sell vegetables',
-                completed: true
-            }],
+            todos: TodoAPI.getTodos(),
             showCompleted: false,
             searchText: ''
-        }
+        };
+
         this.handleAddTodo = this.handleAddTodo.bind(this);
         this.handleSearch  = this.handleSearch.bind(this);
         this.handleToggle  = this.handleToggle.bind(this);
         
     }
+
+    componentDidMount() {
+        // let placeholderTodos = [{
+        //         id: uuid(),
+        //         text: 'Walk the beautiful dog',
+        //         completed: false
+        //     },{
+        //         id:uuid(),
+        //         text:'Daily word review',
+        //         completed: true
+        //     }, {
+        //         id:uuid(),
+        //         text:'Sell vegetables',
+        //         completed: true
+        //     }];
+        
+        // TodoAPI.setTodos(placeholderTodos);
+    }
+
+    componentDidUpdate() {
+        TodoAPI.setTodos(this.state.todos);
+    }
+
 
     handleToggle(id) {
         console.log(id);
