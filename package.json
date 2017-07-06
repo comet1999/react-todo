@@ -8,7 +8,8 @@
     "nodemon": "^1.11.0",
     "react": "0.14.7",
     "react-dom": "0.14.7",
-    "react-router": "2"
+    "react-router": "2",
+    "react-transition-group": "1.x"
   },
   "scripts": {
     "test": "karma start",
@@ -35,6 +36,7 @@
     "karma-webpack": "1.7.0",
     "mocha": "2.4.5",
     "node-sass": "^4.5.3",
+    "node-uuid": "^1.4.8",
     "react-addons-test-utils": "0.14.6",
     "sass-loader": "3.1.2",
     "script-loader": "0.6.1",

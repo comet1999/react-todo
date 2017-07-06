@@ -1,4 +1,5 @@
 const React = require('react');
+const uuid  = require('node-uuid');
 // import React from 'react';
 
 const {TodoList} = require('TodoList');
@@ -12,14 +13,17 @@ class TodoApp extends React.Component {
         super(props);
         this.state = {
             todos: [{
-                id: 1,
-                text: 'Walk the beautiful dog'
+                id: uuid(),
+                text: 'Walk the beautiful dog',
+                completed: false
             },{
-                id:2,
-                text:'Daily word review'
+                id:uuid(),
+                text:'Daily word review',
+                completed: true
             }, {
-                id:3,
-                text:'Sell vegetables'
+                id:uuid(),
+                text:'Sell vegetables',
+                completed: true
             }],
             showCompleted: false,
             searchText: ''
@@ -30,7 +34,16 @@ class TodoApp extends React.Component {
     }
 
     handleAddTodo(text) {
-        console.log(`Add todo: ${text}`);
+        this.setState({
+            todos: [
+                ...this.state.todos, 
+                {
+                    id: uuid(),
+                    text:text,
+                    completed: false
+                }
+            ]
+        });
     }
 
     handleSearch(showCompleted, searchText) {
@@ -48,7 +61,7 @@ class TodoApp extends React.Component {
         const {todos} = this.state;
         return (
             <div className="todo-app">
-                <div className="title-r small-center">Lista latinoamericana de pendientes</div>
+                <div className="title-r small-center">lista de peticiones a nuestro próximo presidente</div>
                 <TodoSearch onSearch={this.handleSearch}/>
                 <TodoList todos={todos} />
                 <AddTodo onAddTodo={this.handleAddTodo} />

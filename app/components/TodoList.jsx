@@ -1,4 +1,6 @@
 import React from 'react';
+import {CSSTransitionGroup} from 'react-transition-group';
+
 
 const {Todo} = require('Todo')
 
@@ -6,6 +8,8 @@ class TodoList extends React.Component {
     constructor(props) {
         super(props)
     }
+
+    component
 
     
 
@@ -27,7 +31,13 @@ class TodoList extends React.Component {
             <div className="grid-container">
                 <div className="grid-y small-centered ">
                     <div>TodoList</div>
-                    {renderTodos()}
+                    <CSSTransitionGroup
+                        transitionName="example"
+                        transitionEnterTimeout={500}
+                        transitionLeaveTimeout={300} >
+                        {renderTodos()}
+                    </CSSTransitionGroup>
+                    
                 </div>
             </div>
         );
